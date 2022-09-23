@@ -1,5 +1,6 @@
 package com.example.greetingappdevelopment.controller;
 
+import com.example.greetingappdevelopment.service.GreetingService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,12 @@ public class GreetingController {
     @GetMapping("/getpath/{name}")
     public String getpath(@PathVariable String name){
         return " Hello " +name;
+    }
+
+    @GetMapping("/getbyservice")
+    public String getbyservice(){
+        String message= GreetingService.getmessage();
+        return message;
     }
 
 }

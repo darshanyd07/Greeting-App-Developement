@@ -28,4 +28,16 @@ public class GreetingController {
         return message;
     }
 
+    @GetMapping("/hello")
+    public String sayPosting(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName)
+    {
+        if (lastName == null) lastName = "";
+        else if (firstName == null) firstName = "";
+        else if (firstName == null && lastName == null) {
+            firstName = "";
+            lastName = "";
+        }
+        return  GreetingService.sayHelloByName(firstName, lastName);
+    }
+
 }

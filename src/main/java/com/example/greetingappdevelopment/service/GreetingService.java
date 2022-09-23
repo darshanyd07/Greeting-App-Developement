@@ -10,4 +10,9 @@ public class GreetingService
         return "Hello World";
     }
 
+    public static String sayHelloByName(String firstName, String lastName)
+    {
+        return "Hello "+firstName+" "+lastName;
+    }
+
 }

@@ -33,7 +33,8 @@ public class GreetingController {
     {
         if (lastName == null) lastName = "";
         else if (firstName == null) firstName = "";
-        else if (firstName == null && lastName == null) {
+        else if (firstName == null && lastName == null)
+        {
             firstName = "";
             lastName = "";
         }

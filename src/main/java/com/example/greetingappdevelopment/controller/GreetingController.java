@@ -1,14 +1,14 @@
 package com.example.greetingappdevelopment.controller;
 
+import com.example.greetingappdevelopment.model.GreetingData;
 import com.example.greetingappdevelopment.service.GreetingService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GreetingController {
-
+    @Autowired
+    GreetingService greetingService;
     @GetMapping("/getMap")
     public String getmessage(){
         return "Hello World";
@@ -38,7 +38,12 @@ public class GreetingController {
             firstName = "";
             lastName = "";
         }
-        return  GreetingService.sayHelloByName(firstName, lastName);
+        return  greetingService.sayHelloByName(firstName, lastName);
     }
-
+    @PostMapping("/getdata")
+    public GreetingData getdata(@RequestBody GreetingData greetingData)
+    {
+        GreetingData greetingData1 = greetingService.postData(greetingData);
+        return greetingData1;
+    }
 }

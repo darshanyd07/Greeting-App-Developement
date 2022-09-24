@@ -1,5 +1,6 @@
 package com.example.greetingappdevelopment.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,19 +8,20 @@ import javax.persistence.Id;
 @Entity
 public class GreetingData
 {
-
     String firstName;
     String lastName;
-    @Id
-    @GeneratedValue
     private int id;
 
     public GreetingData(GreetingData greetingData)
     {
         this.firstName = greetingData.firstName;
         this.lastName = greetingData.lastName;
+    }
+    public GreetingData(String firstName, String lastName)
+    {
 
     }
+
     public GreetingData()
     {
 
@@ -49,10 +51,19 @@ public class GreetingData
     {
         this.id = id;
     }
-
-
+    @Id
+    @GeneratedValue
     public Integer getId()
     {
         return id;
+    }
+    @Override
+    public String toString()
+    {
+        return "Data{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

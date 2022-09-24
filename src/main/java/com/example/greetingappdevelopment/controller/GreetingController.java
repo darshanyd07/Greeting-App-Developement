@@ -6,25 +6,30 @@ import com.example.greetingappdevelopment.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class GreetingController {
+public class GreetingController
+{
     @Autowired
     GreetingService greetingService;
 
     @Autowired
     GreetingRepository greetingRepository;
     @GetMapping("/getMap")
-    public String getmessage(){
+    public String getmessage()
+    {
         return "Hello World";
     }
     @GetMapping("/getbyparam")
-    public String getByParam(@RequestParam String name){
+    public String getByParam(@RequestParam String name)
+    {
         return " Hello " +name;
     }
     @GetMapping("/getpath/{name}")
-    public String getpath(@PathVariable String name){
+    public String getpath(@PathVariable String name)
+    {
         return " Hello " +name;
     }
 
@@ -63,6 +68,11 @@ public class GreetingController {
         Optional<GreetingData> response = greetingService.getmsgbyid(id);
         return response;
     }
-
-
+    //UC6
+    @GetMapping("/getallData")
+    public List<GreetingData> getallData()
+    {
+        List<GreetingData> data=greetingService.getallData();
+        return data;
+    }
 }

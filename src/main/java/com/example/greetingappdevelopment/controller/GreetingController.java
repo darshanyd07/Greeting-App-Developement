@@ -83,4 +83,13 @@ public class GreetingController
     {
         return greetingService.editData(user,id);
     }
+
+    //UC8
+    @DeleteMapping ("/user/{id}")
+    public String  deleteUser (@PathVariable int id)
+    {
+        String response = greetingService.deleteById(id);
+        return response;
+    }
+
 }

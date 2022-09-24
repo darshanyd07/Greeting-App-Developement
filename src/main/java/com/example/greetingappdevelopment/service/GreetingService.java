@@ -47,4 +47,10 @@ public class GreetingService
         return greetingData;
     }
 
+    public String deleteById(int id)
+    {
+        greetingRepository.deleteById(id);
+        return "User by id "+id+" is Deleted";
+    }
+
 }

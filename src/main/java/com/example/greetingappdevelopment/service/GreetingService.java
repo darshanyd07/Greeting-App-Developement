@@ -5,6 +5,7 @@ import com.example.greetingappdevelopment.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,12 @@ public class GreetingService
     public List<GreetingData> getallData()
     {
         return greetingRepository.findAll();
+    }
+
+    public GreetingData editData(GreetingData greetingData,Integer id)
+    {
+        greetingRepository.save(greetingData);
+        return greetingData;
     }
 
 }
